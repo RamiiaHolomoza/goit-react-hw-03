@@ -1,9 +1,18 @@
-import React from 'react'
+import s from "./SearchBox.module.css";
 
-const SearchBox = () => {
+const SearchBox = ({ searchUser, searchValue }) => {
   return (
-    <div>SearchBox</div>
-  )
-}
+    <div>
+      <p>Find contacts by name</p>
+      <input
+        className={s.searchBox}
+        type="text"
+        value={searchValue}
+        onChange={searchUser}
+        placeholder="Search contacts..."
+      />
+    </div>
+  );
+};
 
-export default SearchBox
+export default SearchBox;

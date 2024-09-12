@@ -1,9 +1,18 @@
-import React from 'react'
+import s from "./Contact.module.css";
 
-const Contact = () => {
+const Contact = ({ name, number, id, onDelete }) => {
   return (
-    <div>Contact</div>
-  )
-}
+    <li className={s.contactItem}>
+      <div className={s.contactInfo}>
+        <p className={s.name}>{name}</p>
+        <p className={s.number}>{number}</p>
+      </div>
 
-export default Contact
+      <button className={s.btn} type="button" onClick={() => onDelete(id)}>
+        Delete
+      </button>
+    </li>
+  );
+};
+
+export default Contact;
