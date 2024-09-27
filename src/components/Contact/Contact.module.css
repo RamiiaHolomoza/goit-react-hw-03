@@ -4,6 +4,8 @@
   align-items: center;
   border: 1px solid black;
   border-radius: 5px;
+  padding: 0 10px;
+  gap: 20px;
 }
 
 .contactInfo {
@@ -17,4 +19,8 @@
   padding: 8px;
   border: 1px solid gray;
   border-radius: 8px;
+}
+
+.icon {
+  margin-right: 15px;
 }

@@ -6,11 +6,11 @@ import SearchBox from "./components/SearchBox/SearchBox";
 import initialContacts from "./contacts.json";
 
 const App = () => {
-  // const [contacts, setContacts] = useState(() => {
-  //   const savedContacts = localStorage.getItem("contacts");
-  //   return savedContacts ? JSON.parse(savedContacts) : initialContacts;
-  // });
-  const [contacts, setContacts] = useState(initialContacts);
+  const [contacts, setContacts] = useState(() => {
+    const savedContacts = localStorage.getItem("contacts");
+    return savedContacts ? JSON.parse(savedContacts) : initialContacts;
+  });
+  // const [contacts, setContacts] = useState(initialContacts);
 
   const [search, setSearch] = useState("");
 
@@ -22,6 +22,11 @@ const App = () => {
     contact.name.toLowerCase().includes(search.toLowerCase())
   );
 
+  const addContact = (newContact) => {
+    setContacts((prevContacts) => {
+      return [...prevContacts, newContact];
+    });
+  };
   // const addContact = (prevContacts) => {
   //   const allContacts = {
   //     ...prevContacts,
@@ -41,7 +46,7 @@ const App = () => {
   return (
     <>
       <h1>Phonebook</h1>
-      <ContactForm />
+      <ContactForm onAdd={addContact} />
       <SearchBox searchUser={searchUser} searchValue={search} />
       <ContactList contacts={filteredContacts} onDelete={deleteContact} />
     </>
